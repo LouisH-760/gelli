@@ -202,7 +202,9 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         }
         String channels = currentSong.channels + "ch";
         playbackControlsFragment.binding.codecInfo.setText(currentSong.codec.toUpperCase(Locale.ROOT) + " " + channels);
-
+        playbackControlsFragment.binding.songTitle.setText(currentSong.title);
+        playbackControlsFragment.binding.songArtist.setText(currentSong.artistName);
+        playbackControlsFragment.binding.songAlbum.setText(currentSong.albumName);
     }
 
     private void setUpSubFragments() {
