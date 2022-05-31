@@ -87,6 +87,7 @@ public class PlayerAlbumCoverFragment extends AbsMusicServiceFragment implements
     private void updatePlayingQueue() {
         binding.playerAlbumCoverViewPager.setAdapter(new AlbumCoverPagerAdapter(getParentFragmentManager(), MusicPlayerRemote.getPlayingQueue()));
         binding.playerAlbumCoverViewPager.setCurrentItem(MusicPlayerRemote.getPosition());
+
         onPageSelected(MusicPlayerRemote.getPosition());
     }
 
