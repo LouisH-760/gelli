@@ -140,6 +140,7 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
         setUpRepeatButton();
         setUpShuffleButton();
         setUpProgressSlider();
+        setupStop();
     }
 
     private void setUpPrevNext() {
@@ -152,6 +153,10 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
         int color = ThemeUtil.getPrimaryTextColor(requireContext(), false);
         binding.playerSongTotalTime.setTextColor(color);
         binding.playerSongCurrentProgress.setTextColor(color);
+    }
+
+    private void setupStop() {
+        binding.playerStopButton.setOnClickListener(v -> MusicPlayerRemote.clearQueue());
     }
 
     private void updatePrevNextColor() {

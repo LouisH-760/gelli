@@ -44,6 +44,8 @@ import com.dkanada.gramophone.views.WidthFitSquareLayout;
 import com.google.android.material.color.MaterialColors;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
+import java.util.Locale;
+
 public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbumCoverFragment.Callbacks, SlidingUpPanelLayout.PanelSlideListener {
     private FragmentCardPlayerBinding binding;
 
@@ -179,6 +181,22 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
     private void updateCurrentSong() {
         impl.updateCurrentSong(MusicPlayerRemote.getCurrentSong());
+        Song currentSong = MusicPlayerRemote.getCurrentSong();
+        // sample rate in kHz and not Hz for brevity
+        // show the bitrate instead of bit / sample for lossy media
+        // check using the bitrate, will not work for some lossy codecs or multichannel audio
+        // value is in bits / s
+        if(currentSong.bitDepth < 15) {
+            String sampleRate = Integer.toString(currentSong.sampleRate);
+            String sampleRateText = sampleRate.substring(0, sampleRate.length() - 3) + "." + sampleRate.substring(sampleRate.length() - 3, sampleRate.length() - 2) + "kHz";
+            String bitrateText = currentSong.bitDepth + "bits / " + sampleRateText;
+            playbackControlsFragment.binding.bitrateInfo.setText(bitrateText);
+        } else {
+            playbackControlsFragment.binding.bitrateInfo.setText(Integer.toString(currentSong.bitRate));
+        }
+
+        playbackControlsFragment.binding.codecInfo.setText(currentSong.codec.toUpperCase(Locale.ROOT));
+
     }
 
     private void setUpSubFragments() {

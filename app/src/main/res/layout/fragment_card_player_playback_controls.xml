@@ -68,7 +68,7 @@
     <RelativeLayout
         android:id="@+id/player_media_controller_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/fab_media_controller_container_height"
+        android:layout_height="152dp"
         android:layoutDirection="ltr"
         tools:ignore="ContentDescription">
 
@@ -76,7 +76,8 @@
             android:id="@+id/player_prev_button"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="-8dp"
             android:layout_toStartOf="@+id/dummy_fab"
             android:background="?attr/roundSelector"
@@ -88,8 +89,9 @@
             android:id="@+id/player_next_button"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="-8dp"
+            android:layout_marginTop="15dp"
             android:layout_toEndOf="@+id/dummy_fab"
             android:background="?attr/roundSelector"
             android:padding="22dp"
@@ -101,8 +103,9 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentTop="true"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="15dp"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
@@ -112,8 +115,9 @@
             android:id="@+id/player_shuffle_button"
             android:layout_width="72dp"
             android:layout_height="72dp"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="16dp"
             android:background="?attr/roundSelector"
             android:padding="22dp"
@@ -124,14 +128,60 @@
             android:id="@+id/dummy_fab"
             android:layout_width="56dp"
             android:layout_height="56dp"
-            android:layout_centerInParent="true" />
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="15dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/player_play_pause_fab"
             style="@style/Fab"
+            android:layout_alignParentTop="true"
             android:layout_centerInParent="true"
+            android:layout_marginTop="23dp"
             app:elevation="4dp"
             app:pressedTranslationZ="2dp" />
+
+        <ImageButton
+
+            android:id="@+id/player_stop_button"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="?attr/roundSelector"
+            android:padding="22dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/ic_close_white_24dp" />
+
+        <TextView
+            android:id="@+id/codec_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/bitrate_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     </RelativeLayout>
 
