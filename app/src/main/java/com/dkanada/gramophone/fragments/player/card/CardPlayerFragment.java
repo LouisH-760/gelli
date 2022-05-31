@@ -186,16 +186,22 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         // show the bitrate instead of bit / sample for lossy media
         // check using the bitrate, will not work for some lossy codecs or multichannel audio
         // value is in bits / s
-        if(currentSong.bitDepth < 15) {
+        if(currentSong.bitRate > 320000) {
             String sampleRate = Integer.toString(currentSong.sampleRate);
             String sampleRateText = sampleRate.substring(0, sampleRate.length() - 3) + "." + sampleRate.substring(sampleRate.length() - 3, sampleRate.length() - 2) + "kHz";
             String bitrateText = currentSong.bitDepth + "bits / " + sampleRateText;
             playbackControlsFragment.binding.bitrateInfo.setText(bitrateText);
         } else {
-            playbackControlsFragment.binding.bitrateInfo.setText(Integer.toString(currentSong.bitRate));
-        }
+            String bitrate = Integer.toString(currentSong.bitRate);
+            if (bitrate.length() > 3) {
+                playbackControlsFragment.binding.bitrateInfo.setText(bitrate.substring(0, 3));
+            } else {
+                playbackControlsFragment.binding.bitrateInfo.setText(bitrate);
+            }
 
-        playbackControlsFragment.binding.codecInfo.setText(currentSong.codec.toUpperCase(Locale.ROOT));
+        }
+        String channels = currentSong.channels + "ch";
+        playbackControlsFragment.binding.codecInfo.setText(currentSong.codec.toUpperCase(Locale.ROOT) + " " + channels);
 
     }
 
