@@ -211,6 +211,8 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         playbackControlsFragment = (CardPlayerPlaybackControlsFragment) getChildFragmentManager().findFragmentById(R.id.playback_controls_fragment);
         playerAlbumCoverFragment = (PlayerAlbumCoverFragment) getChildFragmentManager().findFragmentById(R.id.player_album_cover_fragment);
 
+        playbackControlsFragment.setupMenuUpAction(binding.playerSlidingLayout);
+
         playerAlbumCoverFragment.setCallbacks(this);
     }
 

@@ -28,12 +28,14 @@ import com.dkanada.gramophone.interfaces.base.SimpleOnSeekbarChangeListener;
 import com.dkanada.gramophone.fragments.AbsMusicServiceFragment;
 import com.dkanada.gramophone.util.MusicUtil;
 import com.dkanada.gramophone.views.PlayPauseDrawable;
+import com.sothree.slidinguppanel.SlidingUpPanelLayout;
 
 public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment implements MusicProgressViewUpdateHelper.Callback {
 
     public FragmentCardPlayerPlaybackControlsBinding binding;
 
     private PlayPauseDrawable playerFabPlayPauseDrawable;
+    private SlidingUpPanelLayout supl;
 
     private int lastPlaybackControlsColor;
     private int lastDisabledPlaybackControlsColor;
@@ -147,6 +149,15 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
         setUpProgressSlider();
         setupStop();
         setUpMenu();
+        setupUp();
+    }
+
+    private void setupUp() {
+        binding.queueUp.setOnClickListener(v -> {
+            if(this.supl != null) {
+                this.supl.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
+            }
+        });
     }
 
     private void setUpMenu() {
@@ -175,6 +186,10 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
                 return super.onMenuItemClick(item);
             }
         });
+    }
+
+    public void setupMenuUpAction(SlidingUpPanelLayout supl) {
+        this.supl = supl;
     }
 
     private void setUpPrevNext() {

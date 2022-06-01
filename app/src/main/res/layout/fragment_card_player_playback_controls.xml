@@ -209,24 +209,19 @@
             tools:src="@drawable/ic_close_white_24dp"
             tools:visibility="visible" />
 
-        <ImageButton
+    </RelativeLayout>
 
-            android:id="@+id/player_menu"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/queue_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_toEndOf="@id/player_stop_button"
-            android:background="?attr/roundSelector"
-            android:padding="22dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_more_vert_white_24dp"
-            android:visibility="visible"
-            tools:src="@drawable/ic_more_vert_white_24dp"
-            tools:visibility="visible" />
+            app:srcCompat="@drawable/ic_expand_less_white_24dp"
+            tools:srcCompat="@drawable/ic_expand_less_white_24dp" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -253,6 +248,7 @@
             android:layout_marginRight="15dp"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
     </RelativeLayout>
 
 </LinearLayout>
