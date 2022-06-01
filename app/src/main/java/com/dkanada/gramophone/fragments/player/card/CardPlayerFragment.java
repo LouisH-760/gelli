@@ -409,9 +409,11 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
             final int availablePanelHeight = binding.playerSlidingLayout.getHeight() - fragment.getView().findViewById(R.id.player_content).getHeight() + (int) ViewUtil.convertDpToPixel(8, fragment.getResources());
             final int minPanelHeight = (int) ViewUtil.convertDpToPixel(72 + 24, fragment.getResources());
             if (availablePanelHeight < minPanelHeight) {
-                albumCoverContainer.getLayoutParams().height = albumCoverContainer.getHeight() - (minPanelHeight - availablePanelHeight);
-                albumCoverContainer.forceSquare(false);
+                albumCoverContainer.getLayoutParams().height = albumCoverContainer.getHeight() - availablePanelHeight;
+                albumCoverContainer.forceSquare(true);
             }
+
+
 
             binding.playerSlidingLayout.setPanelHeight(0);
             ((AbsMusicPanelActivity) fragment.getActivity()).setAntiDragView(binding.playerSlidingLayout.findViewById(R.id.player_panel));
@@ -442,7 +444,7 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         @Override
         public void setUpPanelAndAlbumCoverHeight() {
             int panelHeight = binding.playerSlidingLayout.getHeight() - fragment.playbackControlsFragment.getView().getHeight();
-            binding.playerSlidingLayout.setPanelHeight(panelHeight);
+            binding.playerSlidingLayout.setPanelHeight(0);
 
             ((AbsMusicPanelActivity) fragment.getActivity()).setAntiDragView(binding.playerSlidingLayout.findViewById(R.id.player_panel));
         }
