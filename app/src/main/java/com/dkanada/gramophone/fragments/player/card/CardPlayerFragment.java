@@ -413,7 +413,7 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
                 albumCoverContainer.forceSquare(false);
             }
 
-            binding.playerSlidingLayout.setPanelHeight(Math.max(minPanelHeight, availablePanelHeight));
+            binding.playerSlidingLayout.setPanelHeight(0);
             ((AbsMusicPanelActivity) fragment.getActivity()).setAntiDragView(binding.playerSlidingLayout.findViewById(R.id.player_panel));
         }
 
