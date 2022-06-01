@@ -14,16 +14,16 @@
 
         <me.zhanghai.android.materialprogressbar.MaterialProgressBar
             android:id="@+id/player_buffering_indicator"
+            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:indeterminate="true"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:mpb_progressStyle="horizontal"
-            app:mpb_useIntrinsicPadding="false"
-            style="@style/Widget.MaterialProgressBar.ProgressBar.Horizontal.NoPadding" />
+            app:mpb_useIntrinsicPadding="false" />
 
         <TextView
             android:id="@+id/player_song_current_progress"
@@ -57,11 +57,11 @@
 
         <SeekBar
             android:id="@+id/player_progress_slider"
+            style="@style/MusicProgressSlider"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            app:layout_constraintStart_toEndOf="@id/player_song_current_progress"
             app:layout_constraintEnd_toStartOf="@id/player_song_total_time"
-            style="@style/MusicProgressSlider" />
+            app:layout_constraintStart_toEndOf="@id/player_song_current_progress" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -141,14 +141,12 @@
             android:id="@+id/dummy_fab"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerVertical="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/player_play_pause_fab"
             style="@style/Fab"
-            android:layout_centerVertical="true"
             android:layout_centerInParent="true"
             android:layout_marginTop="15dp"
             app:elevation="4dp"
@@ -156,12 +154,39 @@
 
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layoutDirection="ltr"
+        tools:ignore="ContentDescription">
+
+        <TextView
+            android:id="@+id/codec_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+        <TextView
+            android:id="@+id/bitrate_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="15dp"
+            android:text="TextView"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    </RelativeLayout>
+
     <LinearLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layoutDirection="ltr"
         android:layout_gravity="center"
+        android:layoutDirection="ltr"
         tools:ignore="ContentDescription">
 
         <ImageButton
@@ -220,32 +245,5 @@
             android:visibility="visible" />
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layoutDirection="ltr"
-        tools:ignore="ContentDescription">
-
-        <TextView
-            android:id="@+id/codec_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-        <TextView
-            android:id="@+id/bitrate_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="15dp"
-            android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
-    </RelativeLayout>
 
 </LinearLayout>
