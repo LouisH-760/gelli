@@ -183,7 +183,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layoutDirection="ltr"
         app:layout_constraintBottom_toTopOf="@+id/bottom_controls"
@@ -215,7 +215,7 @@
 
     <LinearLayout
         android:id="@+id/bottom_controls"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layoutDirection="ltr"
         app:layout_constraintBottom_toBottomOf="parent"
