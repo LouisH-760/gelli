@@ -67,7 +67,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="106dp"
+        android:layout_height="117dp"
         android:gravity="center"
         android:orientation="vertical"
         android:paddingLeft="5dp"
@@ -104,7 +104,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </LinearLayout>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/player_media_controller_container"
         android:layout_width="match_parent"
         android:layout_height="97dp"
@@ -115,46 +115,54 @@
             android:id="@+id/player_prev_button"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerVertical="true"
-            android:layout_marginTop="15dp"
             android:layout_marginEnd="-8dp"
-            android:layout_toStartOf="@+id/dummy_fab"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/dummy_fab"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_skip_previous_white_24dp" />
 
         <ImageButton
             android:id="@+id/player_next_button"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerVertical="true"
             android:layout_marginStart="-8dp"
-            android:layout_marginTop="15dp"
-            android:layout_toEndOf="@+id/dummy_fab"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/dummy_fab"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_skip_next_white_24dp" />
 
         <Space
             android:id="@+id/dummy_fab"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="15dp" />
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/player_play_pause_fab"
             style="@style/Fab"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
             app:elevation="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:pressedTranslationZ="2dp" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -165,21 +173,23 @@
             android:id="@+id/codec_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_marginLeft="15dp"
             android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/bitrate_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
             android:layout_marginRight="15dp"
             android:text="TextView"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/relativeLayout"
