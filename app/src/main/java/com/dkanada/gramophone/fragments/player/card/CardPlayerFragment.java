@@ -15,6 +15,7 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
 import androidx.annotation.ColorInt;
+import androidx.annotation.Dimension;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -404,17 +405,6 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
         @Override
         public void setUpPanelAndAlbumCoverHeight() {
-            WidthFitSquareLayout albumCoverContainer = fragment.getView().findViewById(R.id.album_cover_container);
-
-            final int availablePanelHeight = binding.playerSlidingLayout.getHeight() - fragment.getView().findViewById(R.id.player_content).getHeight() + (int) ViewUtil.convertDpToPixel(8, fragment.getResources());
-            final int minPanelHeight = (int) ViewUtil.convertDpToPixel(72 + 24, fragment.getResources());
-            if (availablePanelHeight < minPanelHeight) {
-                albumCoverContainer.getLayoutParams().height = albumCoverContainer.getHeight() - availablePanelHeight;
-                albumCoverContainer.forceSquare(true);
-            }
-
-
-
             binding.playerSlidingLayout.setPanelHeight(0);
             ((AbsMusicPanelActivity) fragment.getActivity()).setAntiDragView(binding.playerSlidingLayout.findViewById(R.id.player_panel));
         }
