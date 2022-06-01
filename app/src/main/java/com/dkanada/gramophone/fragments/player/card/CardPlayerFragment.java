@@ -184,9 +184,7 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
         Song currentSong = MusicPlayerRemote.getCurrentSong();
         // sample rate in kHz and not Hz for brevity
         // show the bitrate instead of bit / sample for lossy media
-        // check using the bitrate, will not work for some lossy codecs or multichannel audio
-        // value is in bits / s
-        if(currentSong.bitRate > 320000) {
+        if(currentSong.bitDepth > 0) {
             String sampleRate = Integer.toString(currentSong.sampleRate);
             String sampleRateText = sampleRate.substring(0, sampleRate.length() - 3) + "." + sampleRate.substring(sampleRate.length() - 3, sampleRate.length() - 2) + "kHz";
             String bitrateText = currentSong.bitDepth + "bits / " + sampleRateText;
