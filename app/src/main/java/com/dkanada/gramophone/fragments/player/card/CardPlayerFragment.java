@@ -88,8 +88,6 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
         setUpRecyclerView();
 
-        binding.playerSlidingLayout.addPanelSlideListener(this);
-        binding.playerSlidingLayout.setAntiDragView(view.findViewById(R.id.draggable_area));
 
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -105,7 +103,6 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
     @Override
     public void onDestroyView() {
-        binding.playerSlidingLayout.removePanelSlideListener(this);
 
         if (recyclerViewDragDropManager != null) {
             recyclerViewDragDropManager.release();
