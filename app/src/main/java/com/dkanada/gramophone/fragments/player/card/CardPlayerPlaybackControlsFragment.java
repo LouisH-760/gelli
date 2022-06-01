@@ -5,13 +5,18 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.SeekBar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.dkanada.gramophone.dialogs.SongShareDialog;
+import com.dkanada.gramophone.helper.menu.SongMenuHelper;
+import com.dkanada.gramophone.model.Song;
 import com.dkanada.gramophone.util.ThemeUtil;
 import com.dkanada.gramophone.service.QueueManager;
 import com.dkanada.gramophone.R;
@@ -141,6 +146,35 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
         setUpShuffleButton();
         setUpProgressSlider();
         setupStop();
+        setUpMenu();
+    }
+
+    private void setUpMenu() {
+        binding.songTitle.setOnClickListener(new SongMenuHelper.OnClickSongMenu((AppCompatActivity) getActivity()) {
+            @Override
+            public Song getSong() {
+                Song currentSong = MusicPlayerRemote.getCurrentSong();
+                return currentSong;
+            }
+
+            public int getMenuRes() {
+                return R.menu.menu_item_queue_song;
+            }
+
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_remove_from_queue:
+                        MusicPlayerRemote.removeFromQueue(MusicPlayerRemote.getPosition());
+                        return true;
+                    case R.id.action_share:
+                        SongShareDialog.create(getSong()).show(getParentFragmentManager(), SongShareDialog.TAG);
+                        return true;
+                }
+
+                return super.onMenuItemClick(item);
+            }
+        });
     }
 
     private void setUpPrevNext() {

@@ -208,6 +208,25 @@
             android:visibility="visible"
             tools:src="@drawable/ic_close_white_24dp"
             tools:visibility="visible" />
+
+        <ImageButton
+
+            android:id="@+id/player_menu"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_toEndOf="@id/player_stop_button"
+            android:background="?attr/roundSelector"
+            android:padding="22dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_more_vert_white_24dp"
+            android:visibility="visible"
+            tools:src="@drawable/ic_more_vert_white_24dp"
+            tools:visibility="visible" />
     </RelativeLayout>
 
     <RelativeLayout
