@@ -84,10 +84,6 @@ public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
         setUpRecyclerView();
 
-        if (binding.playerSlidingLayout != null) {
-            binding.playerSlidingLayout.addPanelSlideListener(this);
-            binding.playerSlidingLayout.setAntiDragView(view.findViewById(R.id.draggable_area));
-        }
 
         view.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -100,9 +96,6 @@ public class FlatPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
     @Override
     public void onDestroyView() {
-        if (binding.playerSlidingLayout != null) {
-            binding.playerSlidingLayout.removePanelSlideListener(this);
-        }
 
         if (recyclerViewDragDropManager != null) {
             recyclerViewDragDropManager.release();
