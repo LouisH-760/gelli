@@ -195,7 +195,7 @@
             android:id="@+id/codec_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="5dp"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -205,7 +205,7 @@
             android:id="@+id/bitrate_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="15dp"
+            android:layout_marginRight="5dp"
             android:text="TextView"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             app:layout_constraintRight_toRightOf="parent"
@@ -215,7 +215,7 @@
 
     <LinearLayout
         android:id="@+id/bottom_controls"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layoutDirection="ltr"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -225,58 +225,59 @@
 
         <ImageButton
             android:id="@+id/player_shuffle_button"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_shuffle_white_24dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:layout_conversion_absoluteHeight="72dp"
+            tools:layout_conversion_absoluteWidth="72dp"
+            tools:layout_editor_absoluteX="5dp"
+            tools:layout_editor_absoluteY="654dp" />
 
         <ImageButton
             android:id="@+id/player_repeat_button"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="?attr/roundSelector"
             android:padding="22dp"
-            android:scaleType="fitCenter" />
+            android:scaleType="fitCenter"
+            tools:layout_conversion_absoluteHeight="72dp"
+            tools:layout_conversion_absoluteWidth="72dp"
+            tools:layout_editor_absoluteX="87dp"
+            tools:layout_editor_absoluteY="654dp" />
 
         <ImageButton
 
             android:id="@+id/player_stop_button"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_close_white_24dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:layout_conversion_absoluteHeight="72dp"
+            tools:layout_conversion_absoluteWidth="72dp"
+            tools:layout_editor_absoluteX="169dp"
+            tools:layout_editor_absoluteY="654dp" />
 
         <ImageButton
 
             android:id="@+id/queue_up"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_queue_music_white_24dp"
-            android:visibility="visible" />
+            android:visibility="visible"
+            tools:layout_conversion_absoluteHeight="72dp"
+            tools:layout_conversion_absoluteWidth="156dp"
+            tools:layout_editor_absoluteX="251dp"
+            tools:layout_editor_absoluteY="654dp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
