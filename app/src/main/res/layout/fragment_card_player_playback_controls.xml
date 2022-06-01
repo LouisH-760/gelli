@@ -156,10 +156,12 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layoutDirection="ltr"
+        android:layout_gravity="center"
         tools:ignore="ContentDescription">
 
         <ImageButton
@@ -167,15 +169,12 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_marginTop="15dp"
-            android:layout_marginEnd="16dp"
-            android:layout_toStartOf="@id/player_repeat_button"
+            android:layout_marginEnd="15dp"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_shuffle_white_24dp"
-            android:visibility="visible"
-            tools:src="@drawable/ic_shuffle_white_24dp"
-            tools:visibility="visible" />
+            android:visibility="visible" />
 
         <ImageButton
             android:id="@+id/player_repeat_button"
@@ -185,7 +184,6 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_centerInParent="true"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter" />
@@ -195,34 +193,33 @@
             android:id="@+id/player_stop_button"
             android:layout_width="72dp"
             android:layout_height="72dp"
-            android:layout_centerInParent="true"
             android:layout_marginStart="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="15dp"
-            android:layout_toEndOf="@id/player_repeat_button"
             android:background="?attr/roundSelector"
             android:padding="22dp"
             android:scaleType="fitCenter"
             android:src="@drawable/ic_close_white_24dp"
-            android:visibility="visible"
-            tools:src="@drawable/ic_close_white_24dp"
-            tools:visibility="visible" />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+            android:visibility="visible" />
 
         <ImageButton
+
             android:id="@+id/queue_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            app:srcCompat="@drawable/ic_expand_less_white_24dp"
-            tools:srcCompat="@drawable/ic_expand_less_white_24dp" />
-    </RelativeLayout>
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:background="?attr/roundSelector"
+            android:padding="22dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_queue_music_white_24dp"
+            android:visibility="visible" />
+
+    </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/linearLayout"
