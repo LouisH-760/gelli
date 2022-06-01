@@ -161,7 +161,7 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
     }
 
     private void setUpMenu() {
-        binding.songTitle.setOnClickListener(new SongMenuHelper.OnClickSongMenu((AppCompatActivity) getActivity()) {
+        final SongMenuHelper.OnClickSongMenu action = new SongMenuHelper.OnClickSongMenu((AppCompatActivity) getActivity()) {
             @Override
             public Song getSong() {
                 Song currentSong = MusicPlayerRemote.getCurrentSong();
@@ -185,7 +185,10 @@ public class CardPlayerPlaybackControlsFragment extends AbsMusicServiceFragment 
 
                 return super.onMenuItemClick(item);
             }
-        });
+        };
+        binding.songTitle.setOnClickListener(action);
+        binding.songAlbum.setOnClickListener(action);
+        binding.songArtist.setOnClickListener(action);
     }
 
     public void setupMenuUpAction(SlidingUpPanelLayout supl) {
