@@ -121,10 +121,6 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <include
-                            android:id="@+id/current_song"
-                            layout="@layout/item_list" />
-
                         <TextView
                             android:id="@+id/player_queue_sub_header"
                             android:layout_width="match_parent"

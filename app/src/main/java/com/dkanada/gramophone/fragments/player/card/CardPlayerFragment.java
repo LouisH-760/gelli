@@ -388,7 +388,6 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
     @SuppressWarnings("ConstantConditions")
     private static class PortraitImpl extends BaseImpl {
-        MediaEntryViewHolder currentSongViewHolder;
         Song currentSong;
 
         public PortraitImpl(CardPlayerFragment fragment, FragmentCardPlayerBinding binding) {
@@ -397,45 +396,8 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
         @Override
         public void init() {
-            currentSongViewHolder = new MediaEntryViewHolder(fragment.getView().findViewById(R.id.current_song));
 
-            currentSongViewHolder.separator.setVisibility(View.VISIBLE);
-            currentSongViewHolder.shortSeparator.setVisibility(View.GONE);
-            currentSongViewHolder.image.setScaleType(ImageView.ScaleType.CENTER);
-            currentSongViewHolder.image.setColorFilter(ThemeUtil.getColorResource(fragment.getActivity(), R.attr.iconColor), PorterDuff.Mode.SRC_IN);
-            currentSongViewHolder.image.setImageResource(R.drawable.ic_volume_up_white_24dp);
-            currentSongViewHolder.itemView.setOnClickListener(v -> {
-                if (binding.playerSlidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.COLLAPSED) {
-                    binding.playerSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.EXPANDED);
-                } else if (binding.playerSlidingLayout.getPanelState() == SlidingUpPanelLayout.PanelState.EXPANDED) {
-                    binding.playerSlidingLayout.setPanelState(SlidingUpPanelLayout.PanelState.COLLAPSED);
-                }
-            });
 
-            currentSongViewHolder.menu.setOnClickListener(new SongMenuHelper.OnClickSongMenu((AppCompatActivity) fragment.getActivity()) {
-                @Override
-                public Song getSong() {
-                    return currentSong;
-                }
-
-                public int getMenuRes() {
-                    return R.menu.menu_item_queue_song;
-                }
-
-                @Override
-                public boolean onMenuItemClick(MenuItem item) {
-                    switch (item.getItemId()) {
-                        case R.id.action_remove_from_queue:
-                            MusicPlayerRemote.removeFromQueue(MusicPlayerRemote.getPosition());
-                            return true;
-                        case R.id.action_share:
-                            SongShareDialog.create(getSong()).show(fragment.getParentFragmentManager(), SongShareDialog.TAG);
-                            return true;
-                    }
-
-                    return super.onMenuItemClick(item);
-                }
-            });
         }
 
         @Override
@@ -455,9 +417,7 @@ public class CardPlayerFragment extends AbsPlayerFragment implements PlayerAlbum
 
         @Override
         public void updateCurrentSong(Song song) {
-            currentSong = song;
-            currentSongViewHolder.title.setText(song.title);
-            currentSongViewHolder.text.setText(MusicUtil.getSongInfoString(song));
+
         }
 
         @Override
